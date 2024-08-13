@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let name = ["Sam", "John", "Sarah", "Paul"];
+        for (let index in name) {
+            if (name[index].startsWith("S")) { 
+                console.log(index, name[index]);
+            }
+        }
+
+        
+        name.unshift(45);
+        console.log(name);
+        console.log(name.length);
+        console.log(name[4]);
+    </script>
+    <style>
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">this is h1</h1>
+    <button id="red_id">red</button><br>
+    <button id="blue_id">blue</button>
+
+    <script>
+        
+        document.querySelector("#red_id").addEventListener("click", chanRed);
+        document.querySelector("#blue_id").addEventListener("click", chanBlue);
+
+        function chanRed() {
+            document.querySelector("#h1").classList.add('red');
+            document.querySelector("#h1").classList.remove('blue');
+        }
+
+        function chanBlue() {
+            document.querySelector("#h1").classList.add('blue');
+            document.querySelector("#h1").classList.remove('red');
+        }
+    </script>
+</body>
+</html>

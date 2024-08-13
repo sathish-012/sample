@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="text" id="t1">
+   <h1 id="h1">HEADING</h1>
+   <h2 id="h2">hello</h2>
+
+   <input type="button" id="b1" value="click">
+   <script>
+    //document.getElementById("b1").addEventListener("click",change);
+    document.querySelector("#b1").addEventListener("click",change);
+    function change(){
+    
+    document.getElementById("h2").innerHTML='this is from js';
+    let a=document.getElementById("t1").value;
+    console.log(a);
+    document.getElementById("h1").innerHTML= a;
+}
+    
+</script>
+</body>
+</html>

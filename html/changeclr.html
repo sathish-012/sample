@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Box Validation</title>
+    <style>
+        .red-border {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">This is h1</h1>
+    <input type="text" id="textbox" placeholder="Enter text here">
+    <button id="submit_btn">Submit</button>
+
+    <script>
+        const textbox = document.querySelector("#textbox");
+        const submitBtn = document.querySelector("#submit_btn");
+
+        submitBtn.addEventListener("click", () => {
+            if (textbox.value.trim() === "") {
+                textbox.classList.add("red-border");
+            } else {
+                textbox.classList.remove("red-border");
+            }
+        });
+    </script>
+</body>
+</html>
