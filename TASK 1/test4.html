@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .filter {
+            margin: 20px;
+        }
+        .carts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .cart {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">E-Commerce Website</div>
+    <div class="filter">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
+        <button onclick="fetchAndDisplayCarts()">Filter</button>
+    </div>
+    <div class="carts" id="carts"></div>
+
+    <script >
+    function fetchAndDisplayCarts() {
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+    
+        if (!startDate || !endDate) {
+            alert('Please select both start and end dates.');
+            return;
+        }
+    
+        fetch(`https://fakestoreapi.com/carts?startDate=${startDate}&endDate=${endDate}`)
+            .then(response => response.json())
+            .then(carts => {
+                const cartsContainer = document.getElementById('carts');
+                cartsContainer.innerHTML = '';
+                carts.forEach(cart => {
+                    const cartElement = document.createElement('div');
+                    cartElement.classList.add('cart');
+                    cartElement.innerHTML = `
+                        <h3>Cart ID: ${cart.id}</h3>
+                        <p>User ID: ${cart.userId}</p>
+                        <p>Date: ${cart.date}</p>
+                        <p>Products: ${cart.products.map(p => `Product ID: ${p.productId}, Quantity: ${p.quantity}`).join('<br>')}</p>
+                    `;
+                    cartsContainer.appendChild(cartElement);
+                });
+            })
+            .catch(error => console.error('Error fetching carts:', error));
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 24px;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+        }
+        .header {
+            display: flex;
+            padding: 20px;
+        }
+        .header .image {
+            flex: 1;
+            background-color: #ddd;
+            height: 200px;
+        }
+        .header .content {
+            flex: 2;
+            padding: 20px;
+        }
+        .columns {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .column img {
+            width: 100%;
+            height: 150px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">MAGAZINE</div>
+        <div class="menu">
+            <a href="#">NEWS</a>
+            <a href="#">ART</a>
+            <a href="#">DESIGN</a>
+            <a href="#">CULTURE</a>
+        </div>
+    </div>
+    <div class="header">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkchPVLcNtyFGDUYZutIf2kz2QPPshFVEYKw&s" alt="">
+        </div>
+        <div class="content">
+            <h1>CONTEMPORARY ART</h1>
+            <p>Forbes is an American business magazine founded by B. C. Forbes in 1917 and owned by Hong Kong-based investment group Integrated Whale Media Investments since 2014. Its chairman and editor-in-chief is Steve Forbes, and its CEO is Mike Federle. It is based in Jersey City</p>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcdyXvGE2mpEIhrjlkEBvHMzcRttGu1eq1bQ&s" alt="Placeholder Image">
+            <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+        <div class="column">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jj4VuGNLnq5q2Go19DhAGybO6snXOIA3DA&s" alt="Placeholder Image">
+            <p>Ut enim ad minim veniam, quis...</p>
+        </div>
+        <div class="column">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4mx8WTHWVqMjqsORGUiOyXADtMh48Tx04sQ&s" alt="Placeholder Image">
+            <p>Duis aute irure dolor in...</p>
+        </div>
+    </div>
+</body>
+</html>

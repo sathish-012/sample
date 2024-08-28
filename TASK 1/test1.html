@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, section, article, footer {
+            padding: 20px;
+            margin: 10px;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        article {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            margin: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MAGAZINE</h1>
+    </header>
+    <nav>
+        <a href="#">NEWS</a>
+        <a href="#">ART</a>
+        <a href="#">DESIGN</a>
+        <a href="#">CULTURE</a>
+    </nav>
+    <section>
+        <article>
+            <h2>Article 1</h2>
+            <p>Placeholder text for article 1.</p>
+        </article>
+        <article>
+            <h2>Article 2</h2>
+            <p>Placeholder text for article 2.</p>
+        </article>
+        <article>
+            <h2>Article 3</h2>
+            <p>Placeholder text for article 3.</p>
+        </article>
+    </section>
+    <footer>
+        <p>© 2024 Magazine</p>
+    </footer>
+</body>
+</html>
