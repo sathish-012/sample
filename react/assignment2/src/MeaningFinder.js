@@ -29,15 +29,15 @@ function MeaningFinder() {
       <h1>ASSIGNMENT 2</h1>
       <input
         type="text"
-        placeholder="Enter a text"
+        placeholder="Enter a name"
         value={name}
         onChange={handleNameChange}
       />
       <button onClick={fetchData}>click</button>
       {apiResponse && (
         <div>
-          <p>Text: {apiResponse.name}</p>
-          <p>Number: {apiResponse.age}</p>
+          <p>Name: {apiResponse.name}</p>
+          <p>Age: {apiResponse.age}</p>
           
         </div>
       )}
