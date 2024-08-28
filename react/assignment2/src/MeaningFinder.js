@@ -29,16 +29,16 @@ function MeaningFinder() {
       <h1>ASSIGNMENT 2</h1>
       <input
         type="text"
-        placeholder="Enter a name"
+        placeholder="Enter a text"
         value={name}
         onChange={handleNameChange}
       />
-      <button onClick={fetchData}>Find Meaning</button>
+      <button onClick={fetchData}>click</button>
       {apiResponse && (
         <div>
-          <p>Name: {apiResponse.name}</p>
-          <p>Age: {apiResponse.age}</p>
-          {/* Add other relevant fields from the API response */}
+          <p>Text: {apiResponse.name}</p>
+          <p>Number: {apiResponse.age}</p>
+          
         </div>
       )}
     </div>
