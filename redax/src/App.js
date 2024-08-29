@@ -7,6 +7,7 @@ import About from './About';
 import Header from './Header';
 import { Provider } from 'react-redux'; // Corrected import
 import { myStore } from './redux/Config';
+import Web1 from './Web1';
 
 const routerPaths = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -14,13 +15,14 @@ const routerPaths = createBrowserRouter([
   { path: "/home", element: <Home /> },
   { path: "/about", element: <About /> }, 
   { path: "/contacts", element: <Contacts /> }, 
+  {path:"/web",element:<Web1/>}
 ]);
 
 function App() {
   return (
     <Provider store={myStore}> {/* Corrected Provider and myStore */}
       <div className="App">
-        <Header />
+        
         <RouterProvider router={routerPaths} />
       </div>
     </Provider>
