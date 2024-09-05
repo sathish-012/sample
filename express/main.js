@@ -1,40 +1,69 @@
-var express =require("express");
+var express = require("express");
 var app = express();
 app.use(express.json());
 
+app.get("/", (request, response) => {
+  response.json({ message: "Karan" });
+});
 
-app.get("/myname",(req,res)=>{
-    res.json({"msg":"sathish"});
-})
-app.post("/myname",(req,res)=>{
-  res.json({"age":"56"});
-})
-app.post("/login",(req,res)=>{
-  //let email=req['query']['email'];
-  //let pwd=req['query'] ['password'];
-  let {email,pwd}=req['query'];
-  console.log(email,pwd);
-  if (email == 'admin@gmail' && pwd =="admin"){
-    res.json({"msg":"your are correct"})
-  }else{
-    res.json({"msg":"you are wrong"})
-  }
-  
-})
+app.post("/", (request, response) => {
+  response.json({ message: "Batman Gopi" });
+});
+app.post("/login", (request, response) => {
+  // let email = request["query"]["email"];
+  // let pass = request["query"]["password"];
+  let { email, password } = request["query"];
 
-app.post("/register",(req,res)=>{
-  //let email=req['query']['email'];
-  //let pwd=req['query'] ['password'];
-  let {name,email,pwd,address}=req['body'];
-  console.log(name,email,pwd,address);
-  if (!name|| !email || !pwd ||!address){
-    res.json({"msg":"enter all details"})
-  }else{
-    res.json({"msg":"Registered"})
+  if (email == "admin@gmail.com" && password == "admin") {
+    response.json({ Message: "You have logged in success" });
+  } else {
+    response.json({ Message: "Credentials failed" });
   }
-  
-})
-app.listen(8080,()=>{
-  console.log("server started");
-}
-)                                                                                                                                  
+});
+
+//   response.json({ email: email, password: pass });
+// });
+
+app.post("/register", (request, response) => {
+  let { name, email, password, address } = request.body;
+  if (!name || !email || !password || !address) {
+    response.json({ message: "Enter all the details" });
+  } else {
+    response.json({ message: "Register Successfully" });
+  }
+});
+
+app.post("/add", (request, response) => {
+  let { num1, num2 } = request.body;
+  if (!num1 || !num2) {
+    response.json({ message: "Enter 2 Values" });
+  } else {
+    response.json({ value: num1 + num2 });
+  }
+});
+
+const { MongoClient } = require("mongodb");
+
+// Connection URL
+const url = "mongodb+srv://sathishthangavel012:Sathish6412@cluster0.8t52d.mongodb.net/";
+const client = new MongoClient(url);
+
+// Database Name
+const dbName = "office";
+
+app.post("/createTeacher", async (req, res) => {
+  let body = req.body;
+  let data = {
+    name: body["name"],
+    email: body["email"],
+    password: body["password"],
+    address: body["address"],
+    mobile_no: body["mobile_no"],
+  };
+  await client.connect();
+  let db = client.db("office");
+  await db.collection("teachers").insertOne(data);
+  res.status(200).json({ message: "Created New Teacher Record!!" });
+});
+
+app.listen(8080);
